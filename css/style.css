@@ -1,0 +1,114 @@
+html{
+    min-height: 100vh;
+    font-family: 'Mina', sans-serif;
+    background:  #e9b8accb url(../images/stockholm_bakground.jpg) no-repeat center center;
+    background-size: cover;
+    background-position-y: 75%;
+    background-position: fixed;
+}
+
+body{
+margin: 0;
+padding: 0;
+font-size: 1.8rem;
+display:flex;
+color: white;
+
+
+}
+
+*{
+    box-sizing: border-box;
+    
+}
+
+h1, p{
+    margin: 0;
+    padding: 0;
+}
+
+
+.content-wrapper{
+    min-height: 50vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+
+}
+
+
+.header{
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    min-height: 2vh;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-decoration: underline;
+    width: 100%;
+    
+
+
+}
+
+.current-weather__city h3{
+    text-align: center;
+    align-self: center;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    text-shadow: 1px 0 1px black;
+}
+
+.icon-text__container{
+    max-width: 100%;
+    max-height: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #334e5aa8;
+    flex-direction: column;
+    border-radius: 8px;
+    flex-wrap: wrap;
+    margin: 0;
+    text-shadow: 1px 0 1px black;
+    
+}
+.icon-text__container img{
+    
+}
+.icon-text__container p{
+    
+}
+.current-weather__temp{
+    max-width: 100%;
+    max-height: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color:#baafb5b2;
+    border-radius: 8px;
+    flex-wrap: wrap;
+    margin: 0;
+    text-shadow: 1px 0 1px black;
+}
+
+.current-weather__day{
+    min-width: 100%;
+    max-height: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color:  #f8baa5a6;
+    border-radius: 8px;
+    flex-wrap: wrap;
+    margin: 0;
+    text-shadow: 1px 0 1px black;
+
+}
+
+
+
