@@ -10,105 +10,235 @@ html{
 body{
 margin: 0;
 padding: 0;
-font-size: 1.8rem;
-display:flex;
+font-size: 1.3rem;
 color: white;
-
+padding: 0 2rem 0 2rem;
 
 }
 
 *{
     box-sizing: border-box;
-    
+   
 }
 
-h1, p{
+h1, h2, h3, h4, h5, p{
     margin: 0;
     padding: 0;
 }
 
-
 .content-wrapper{
-    min-height: 50vh;
-    min-width: 100vw;
+    min-height: 100%;
+    min-width: 50vw;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
+    align-self: center;
+    flex-wrap: wrap;
     text-align: center;
 
 }
 
-
-.header{
-    color: white;
-    text-shadow: 1px 1px 1px black;
-    min-height: 2vh;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-decoration: underline;
-    width: 100%;
-    
-
-
+.currentweather{
+    margin-top: 1rem;
+    display: flex;
+    flex-flow: column wrap;
+    align-self: center;
+    min-width: 50%;
+    flex-grow: 1;
+ 
 }
 
-.current-weather__city h3{
-    text-align: center;
+.current-weather__city {
     align-self: center;
     letter-spacing: 5px;
     text-transform: uppercase;
-    text-shadow: 1px 0 1px black;
+    text-shadow: 1px 1.5px 1px black;
+    
 }
 
 .icon-text__container{
-    max-width: 100%;
-    max-height: 15rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #334e5aa8;
-    flex-direction: column;
+    min-height: 9rem;
+    background-color: #6aaccaa8;
     border-radius: 8px;
-    flex-wrap: wrap;
-    margin: 0;
     text-shadow: 1px 0 1px black;
+    box-shadow: 1px 4px 1px rgba(0, 0, 0, 0.432);
     
 }
-.icon-text__container img{
-    
-}
-.icon-text__container p{
-    
-}
+
 .current-weather__temp{
-    max-width: 100%;
-    max-height: 15rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color:#baafb5b2;
+    padding-top: 1.5rem;
+    min-height: 9rem;
+    background-color: #7db5c88a;
     border-radius: 8px;
-    flex-wrap: wrap;
-    margin: 0;
     text-shadow: 1px 0 1px black;
+    box-shadow: 1px 4px 1px rgba(0, 0, 0, 0.432);
 }
 
 .current-weather__day{
-    min-width: 100%;
-    max-height: 15rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color:  #f8baa5a6;
+    padding-top: 1.5rem;
+    min-height: 9rem;
+    background-color: #77b4c84b;
     border-radius: 8px;
-    flex-wrap: wrap;
-    margin: 0;
     text-shadow: 1px 0 1px black;
+    box-shadow: 1px 4px 1px rgba(0, 0, 0, 0.432);
 
 }
 
+.coming__header{
+    /* align-self: center; */
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    text-shadow: 1px 1.5px 1px black;
+    margin-top: 10px;
+   
+}
+
+.forecast__container{
+    margin-top: 1rem;
+    text-shadow: 1px 0 1px black;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1rem;
+    justify-content: center;
+    border-radius: 8px;
+    max-width: 50%;
+    margin: auto;
+    flex-grow: 1;
+    align-self: center;
+
+}
+
+.forecast-1{
+  
+    min-width: 99.4%;
+    border-radius: 8px;
+    /* border: 1px dashed greenyellow; */
+    background-color: #f7c2adb5;
+    /* background-color: #334e5aa8; */
+    box-shadow: 1px 4px 1px black;
+
+}
+
+.forecast-2{
+    min-width: 48%;
+    border-radius: 8px;
+    margin: .2%;
+    background-color: #bbbed0a8;
+    /* border: 1px dashed red; */
+    box-shadow: 1px 0px 1px black;
+    flex-grow:1;
+    
+}
+
+.forecast-3{
+    min-width: 48%;
+    border-radius: 8px;
+    background-color:#baafb5b2;
+    margin: .2%;
+    box-shadow: 1px 0px 1px black;
+    flex-grow:2;
+   
+  
+}
+
+.forecast-4{
+    min-width: 48%;
+    border-radius: 8px;
+    background-color:#baafb5b2;
+    margin: .2%;
+    box-shadow: 1px 0px 1px black;
+    flex-grow:3;
+ 
+    
+}
+
+.forecast-5{
+    min-width: 48%;
+    border-radius: 8px;
+    background-color: #bbbed0a8;
+    margin: .2%;
+    box-shadow: 1px 0px 1px black;
+    flex-grow:4;
+}
+
+.last_update{
+   min-width: 100%;
+}
 
 
+@media screen and (max-width: 399px) {
+
+    .current-weather__city {
+        font-size: 1rem;
+        min-width: auto;
+    }
+    
+    .icon-text__container{
+        font-size: 1rem;
+        min-width: auto;
+    
+
+        
+    }
+
+    .current-weather__temp{
+        font-size: 1rem;
+        min-width: auto;
+        
+        
+    }
+    
+    .current-weather__day{
+        font-size: 1rem;
+        min-width: auto;
+       
+    }
+
+    .forecast__container{
+        font-size: 0.7rem;
+    }
+    
+}
+
+@media screen and (max-width: 746px) {
+
+
+    .forecast__container{
+    
+        min-width: 100%;
+       
+        
+    }
+
+    .forecast-1{
+      
+       
+      
+    }
+    
+    
+    .forecast-2{
+      
+        
+    }
+    
+    .forecast-3{
+        
+  
+       
+      
+    }
+    
+    .forecast-4{
+        
+
+     
+        
+    }
+    
+    .forecast-5{
+  
+      
+   
+    }
+}
