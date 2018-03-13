@@ -12,17 +12,7 @@ const lastUpdatetitle = document.createElement('p');
 const lastUpdate = document.createElement('p');
 const currentDay = document.createElement('h1');
 const feelsLike = document.createElement('p');
-
-//  Array varibles for 5 days forecast weather
-const imgIcon = [];
-const textTemp = [];
-const minTextTemp = [];
-const maxTextTagTemp = [];
-const forecastDayText = [];
-const forecastDayNameText = [];
-const forecastCondition = [];
-const forecastWind = [];
-
+const comingPredic = document.createElement('h3');
 
 //////////////////////////////////////
 // Writes 3letters weekday instead
@@ -53,9 +43,8 @@ const forecastWind = [];
             'Thursday', 'Friday', 'Saturday'
         ];
      return weekday[day.getDay()];
-
     }
-
+  
     async function getData(){
          weather = await fetchData(apixu_API)
         console.log(weather);
@@ -69,6 +58,8 @@ const forecastWind = [];
         feelsLike.textContent =  "Feels like " + weather.current.feelslike_c + " °C";
         currentIcon.setAttribute("src", `https:${weather.current.condition.icon}`);
         currentTemp.textContent = Math.round(weather.current.temp_c) + " °C";
+        comingPredic.textContent = "Coming 5 days";
+        
         lastUpdatetitle.textContent = "Last updated: ";
         lastUpdate.textContent = weather.current.last_updated;
         //Create nodes in the DOM
@@ -83,6 +74,7 @@ const forecastWind = [];
         // document.getElementById("current-weather__temp").appendChild(averageWind);
         document.getElementById("last_update").appendChild(lastUpdatetitle);
         document.getElementById("last_update").appendChild(lastUpdate);
+        document.getElementById("coming-weather").appendChild(comingPredic);
 
         //////////////////////////////
         // Transform kph---> m/s
@@ -92,7 +84,6 @@ const forecastWind = [];
             return Math.round(weather.current.wind_kph / 3.6);
           
         }
-
 
         function getSun (){
             const itsDay = weather.current.is_day
@@ -107,31 +98,39 @@ const forecastWind = [];
           
         }
     
-       const sunny =  getSun();
-       console.log(sunny);      
-    
-        for (let i = 1; i < 6; i++) {
+       const arrayLength = weather.forecast.forecastday.length;
+       console.log(arrayLength);
+        for (let i = 1; i < arrayLength; i++) {
             
-            forecastWind[i] = document.createElement('p');
-            forecastWind[i].textContent = getWind(weather.forecast.forecastday[i].day.avgvis_km);
-            forecastDayText[i] = document.createElement('h2');
-            forecastDayText[i].textContent = weather.forecast.forecastday[i].day.condition.text
-            forecastCondition[i] = document.createElement('h2');
-            forecastCondition[i].textContent = weather.forecast.forecastday[i].date;
-            imgIcon[i] = document.createElement("img");
-            imgIcon[i].setAttribute("src", `http:${weather.forecast.forecastday[i].day.condition.icon}`);
+
+            function getWindy (){
+                let kph = weather.forecast.forecastday[i].day.maxwind_kph;
+                return (weather.forecast.forecastday[i].day.maxwind_kph) / 3.6;
+                
+            }
+
+            let forecastDayText = document.createElement('h2');
+            forecastDayText.textContent = weather.forecast.forecastday[i].day.condition.text
+            let forecastCondition = document.createElement('h2');
+            forecastCondition.textContent = weather.forecast.forecastday[i].date;
+            let imgIcon = document.createElement("img");
+            imgIcon.setAttribute("src", `http:${weather.forecast.forecastday[i].day.condition.icon}`);
             
-           //MAX and MIN temperatures
-            maxTextTagTemp[i] = document.createElement('p');
-            maxTextTagTemp[i].textContent = 'Max Temp: ' + Math.round(weather.forecast.forecastday[i].day.maxtemp_c) + " °C ";
-            minTextTemp[i] = document.createElement('p');
-            minTextTemp[i].textContent =' Min Temp: ' + Math.round(weather.forecast.forecastday[i].day.mintemp_c) +  " °C " ;
-            
-            document.getElementById(`forecast${[i]}`).appendChild(imgIcon[i]);
-            document.getElementById(`forecast${[i]}`).appendChild(forecastDayText[i]);
-            document.getElementById(`forecast${[i]}`).appendChild(maxTextTagTemp[i]);
-            document.getElementById(`forecast${[i]}`).appendChild(minTextTemp[i]);
-            document.getElementById(`forecast${[i]}`).appendChild(forecastCondition[i]);
+            //MAX and MIN temperatures
+            let maxTextTagTemp = document.createElement('p');
+            maxTextTagTemp.textContent = 'Max Temp: ' + Math.round(weather.forecast.forecastday[i].day.maxtemp_c) + " °C ";
+            let minTextTemp = document.createElement('p');
+            minTextTemp.textContent =' Min Temp: ' + Math.round(weather.forecast.forecastday[i].day.mintemp_c) +  " °C " ;
+            let maxWind = document.createElement('p');
+            maxWind.textContent = 'Max Wind' + " " + Math.round(getWindy()) + ' ' + 'm/s';
+           
+            document.getElementById(`forecast${[i]}`).appendChild(imgIcon);
+            document.getElementById(`forecast${[i]}`).appendChild(forecastDayText);
+            document.getElementById(`forecast${[i]}`).appendChild(maxTextTagTemp);
+            document.getElementById(`forecast${[i]}`).appendChild(minTextTemp);
+            document.getElementById(`forecast${[i]}`).appendChild(maxWind);            
+            document.getElementById(`forecast${[i]}`).appendChild(forecastCondition);
+            // document.getElementById(`forecast${[i]}`).appendChild(forecastWind[i]);
         }
 
 }
