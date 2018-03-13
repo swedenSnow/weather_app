@@ -1,6 +1,6 @@
 
 // Varibles for current weather
-const apixu_API = "https://api.apixu.com/v1/forecast.json?key=50bab9bae1bd4dca94c93510180603&q=stockholm&days=6&lang=sv";
+const apixu_API = "https://api.apixu.com/v1/forecast.json?key=50bab9bae1bd4dca94c93510180603&q=stockholm&days=6";
 const currentCity = document.createElement('h3');
 const currentDayofDay = document.createElement('h3');
 const currentCondition = document.createElement('h1');
