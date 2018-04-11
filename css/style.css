@@ -1,5 +1,7 @@
 html{
-    min-height: 100vh;
+    min-height: 100%;
+    min-width: 100%;
+    max-width:1200px;
     font-family: 'Mina', sans-serif;
     background:  #e9b8accb url(../images/stockholm_bakground.jpg) no-repeat center center;
     background-size: cover;
@@ -11,7 +13,7 @@ html{
 body{
 margin: 0;
 padding: 0;
-font-size: 1.3rem;
+font-size: 1rem;
 color: white;
 padding: 0 2rem 0 2rem;
 
@@ -54,7 +56,6 @@ h1, h2, h3, h4, h5, p{
 }
 
 .coming__header{
-    /* align-self: center; */
     letter-spacing: 5px;
     text-transform: uppercase;
     text-shadow: 1px 1.5px 1px black;
@@ -67,6 +68,8 @@ h1, h2, h3, h4, h5, p{
     letter-spacing: 5px;
     text-transform: uppercase;
     text-shadow: 1px 1.5px 1px black;
+    font-size: 150%;
+    margin-top: 5rem;
     
 }
 
@@ -117,17 +120,18 @@ h1, h2, h3, h4, h5, p{
     border-radius: 8px;
     max-width: 50%;
     height: 100%;
-    /* margin: auto; */
+    margin: auto;
+    padding: 0.1rem;
     flex-grow: 1;
     align-self: center;
-    background-color: #334e5aa8;
+    background-color: #334e5aa8; 
     
 
 }
 
 .forecast-1{
     background-color: #6aaccaa8;
-    min-width: 99.4%;
+    min-width: 100%;
     border-radius: 8px;
     /* border: 1px dashed greenyellow; */
     /* background-color: #334e5aa8; */
@@ -136,61 +140,64 @@ h1, h2, h3, h4, h5, p{
 }
 
 .forecast-2{
-    min-width: 48%;
+    min-width: 45%;
     border-radius: 8px;
     margin: .2%;
     background-color: #a9c4c9cc;
     /* border: 1px dashed red; */
     box-shadow: 1px 0px 1px black;
-    flex-grow:1;
+    flex-grow: 1;
     
 }
 
 .forecast-3{
-    min-width: 48%;
+    min-width: 45%;
     border-radius: 8px;
     background-color:#a9c4c9cc;
     margin: .2%;
     box-shadow: 1px 0px 1px black;
-    flex-grow:2;
+    flex-basis: 50%;
    
   
 }
 
 .forecast-4{
-    min-width: 48%;
+    width: 45%;
     border-radius: 8px;
     background-color:#a9c4c9cc;
     margin: .2%;
     box-shadow: 1px 0px 1px black;
-    flex-grow:3;
+    flex-grow: 1;
+
  
     
 }
 
 .forecast-5{
-    min-width: 48%;
+    width: 45%;
     border-radius: 8px;
     background-color: #a9c4c9cc;
     margin: .2%;
     box-shadow: 1px 0px 1px black;
-    flex-grow:4;
+    flex-basis: 50%;
+   
 }
 
 .last_update{
    min-width: 100%;
+   font-size: 80%;
 }
 
 
-@media screen and (max-width: 399px) {
+@media screen and (max-width: 375px) {
 
     .current-weather__city {
-        font-size: 1rem;
+        font-size: 0.8rem;
         min-width: auto;
     }
     
     .icon-text__container{
-        font-size: 1rem;
+        font-size: 0.8rem;
         min-width: auto;
     
 
@@ -198,20 +205,22 @@ h1, h2, h3, h4, h5, p{
     }
 
     .current-weather__temp{
-        font-size: 1rem;
+        font-size: 0.8rem;
         min-width: auto;
         
         
     }
     
     .current-weather__day{
-        font-size: 1rem;
+        font-size: 0.8rem;
         min-width: auto;
        
     }
 
     .forecast__container{
-        font-size: 0.7rem;
+        font-size: 0.8rem;
+      
+
     }
     
 }
@@ -222,11 +231,14 @@ h1, h2, h3, h4, h5, p{
     .forecast__container{
     
         min-width: 100%;
+        
        
         
     }
 
     .forecast-1{
+        
+        min-width: 100%;
       
        
       
@@ -234,18 +246,20 @@ h1, h2, h3, h4, h5, p{
     
     
     .forecast-2{
+        min-width: 45%;
       
         
     }
     
     .forecast-3{
-        
+        min-width: 45%;
   
        
       
     }
     
     .forecast-4{
+       width: 45%;
         
 
      
@@ -253,6 +267,7 @@ h1, h2, h3, h4, h5, p{
     }
     
     .forecast-5{
+        width: 45%;
   
       
    

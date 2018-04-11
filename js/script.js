@@ -1,6 +1,6 @@
 
 // Varibles for current weather
-const apixu_API = "https://api.apixu.com/v1/forecast.json?key=50bab9bae1bd4dca94c93510180603&q=stockholm&days=6";
+const apixu_API = "http://api.apixu.com/v1/forecast.json?key=50bab9bae1bd4dca94c93510180603&q=stockholm&days=6";
 const currentCity = document.createElement('h3');
 const currentDayofDay = document.createElement('h3');
 const currentCondition = document.createElement('h1');
@@ -17,22 +17,9 @@ const comingPredic = document.createElement('h3');
 //////////////////////////////////////
 // Writes 3letters weekday instead
 /////////////////////////////////////
-// const lastUpdate = document.createElement('p');
-// Days object
-// const  days = {
-//     'Mon': 'Monday',
-//     'Tue': 'Tuesday',
-//     'Wed': 'Wednesday',
-//     'Thu': 'Thursday',
-//     'Fri': 'Friday',
-//     'Sat': 'Saturday'
-//  }
-
 //  const dateName = new Date().toString().split(' ')[0]; //get day abreviation first
 //////////////////////////////////////////
-//////////////////////////////////////////
 
- 
  //////////////////////////////////////////
  // Function instead to print whole dayname
 //////////////////////////////////////////
@@ -46,9 +33,7 @@ const comingPredic = document.createElement('h3');
     }
   
     async function getData(){
-         weather = await fetchData(apixu_API)
-        console.log(weather);
-
+        weather = await fetchData(apixu_API);
         currentCity.textContent = `${weather.location.name}, ${weather.location.country}`;
         currentDayofDay.textContent = getSun();
         currentDay.textContent = getDay();
@@ -58,8 +43,7 @@ const comingPredic = document.createElement('h3');
         feelsLike.textContent =  "Feels like " + weather.current.feelslike_c + " °C";
         currentIcon.setAttribute("src", `https:${weather.current.condition.icon}`);
         currentTemp.textContent = Math.round(weather.current.temp_c) + " °C";
-        comingPredic.textContent = "Coming 5 days";
-        
+        comingPredic.textContent = "5 day Forecast";
         lastUpdatetitle.textContent = "Last updated: ";
         lastUpdate.textContent = weather.current.last_updated;
         //Create nodes in the DOM
@@ -89,11 +73,11 @@ const comingPredic = document.createElement('h3');
             const itsDay = weather.current.is_day
             console.log(itsDay);
             if(weather.current.is_day===1){
-                return "Daytime ☀️"
+                return "☀️"
 
             }
             else {
-                return "Nighttime 🌙"
+                return "🌙"
             }
           
         }
@@ -102,12 +86,10 @@ const comingPredic = document.createElement('h3');
        console.log(arrayLength);
         for (let i = 1; i < arrayLength; i++) {
             
-
-            function getWindy (){
-                let kph = weather.forecast.forecastday[i].day.maxwind_kph;
-                return (weather.forecast.forecastday[i].day.maxwind_kph) / 3.6;
-                
-            }
+        function getWindy (){
+            let kph = weather.forecast.forecastday[i].day.maxwind_kph;
+            return (weather.forecast.forecastday[i].day.maxwind_kph) / 3.6;
+        }
 
             let forecastDayText = document.createElement('h2');
             forecastDayText.textContent = weather.forecast.forecastday[i].day.condition.text
@@ -115,7 +97,7 @@ const comingPredic = document.createElement('h3');
             forecastCondition.textContent = weather.forecast.forecastday[i].date;
             let imgIcon = document.createElement("img");
             imgIcon.setAttribute("src", `http:${weather.forecast.forecastday[i].day.condition.icon}`);
-            
+        
             //MAX and MIN temperatures
             let maxTextTagTemp = document.createElement('p');
             maxTextTagTemp.textContent = 'Max Temp: ' + Math.round(weather.forecast.forecastday[i].day.maxtemp_c) + " °C ";
@@ -130,7 +112,6 @@ const comingPredic = document.createElement('h3');
             document.getElementById(`forecast${[i]}`).appendChild(minTextTemp);
             document.getElementById(`forecast${[i]}`).appendChild(maxWind);            
             document.getElementById(`forecast${[i]}`).appendChild(forecastCondition);
-            // document.getElementById(`forecast${[i]}`).appendChild(forecastWind[i]);
         }
 
 }
@@ -148,5 +129,5 @@ const comingPredic = document.createElement('h3');
 //////////////////////////////////////
 // Lets go!
 /////////////////////////////////////
-    getData()
+getData()
     
