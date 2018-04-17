@@ -5,7 +5,7 @@ Weather app for school project, testing APIs for the first time
 Stockholm
 
 ### Coming update 
-Will use HTML5 Geolocation
+Will use Geolocation
 
 ### GH pages
 Make sure you refresh the page: https://swedensnow.github.io/weather_app/
